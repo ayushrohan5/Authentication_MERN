@@ -4,6 +4,7 @@ require('dotenv').config();
 const cors = require('cors');
 const bodyParser= require('body-parser');
 const AuthRouter = require('./Routes/AuthRouter')
+const ProductRouter = require('./Routes/ProductRouter')
 require('./Models/db')
 
 
@@ -15,7 +16,7 @@ app.get('/ping', (req,res)=>{
 
 app.use(bodyParser.json());
 app.use(cors());
-
+app.use('/products', ProductRouter)
 app.use('/auth', AuthRouter)
 
 app.listen(PORT, ()=>{
