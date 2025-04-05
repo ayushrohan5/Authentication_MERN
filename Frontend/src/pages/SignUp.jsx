@@ -39,27 +39,30 @@ const SignUp = () => {
             const result = response.data;
             // console.log(result);
             const { success, message, error } = result;
-    
+            console.log(error);
             if (success) {
                 handleSuccess(message);
                 setTimeout(() => {
                     navigate('/login');
                 }, 1000);
             } else if (error) {
-                let details = error?.details[0]?.message;
+                let details = error?.details[0].message;
                 handleError(details);
-            } else {
+                
+            } else if (!success) {
                 handleError(message);
             }
     
         } catch (err) {
-            handleError(err.response?.data?.message || err.message);
+            handleError(err.response?.data?.error?.details[0].message || err);
+            console.log(err.response?.data?.message);
         }
     }
     
   return (
    <>
-   <div className='container'>
+   <div className='signup-wrapper'>
+   <div className='container signup-container'>
     <h1>SignUp</h1>
     <form onSubmit={handleSignup}>
         <div>
@@ -74,11 +77,13 @@ const SignUp = () => {
             <label htmlFor='password'>Passsword</label>
             <input onChange={handleChange} value={signupInfo.password} type="password" name='password' placeholder='Enter your password'/>
         </div>
-        <button type='submit'>Signup</button>
+        <button type='submit' className="animated-button">Signup</button>
         <span>Already have an account ?<Link to="/login">Login</Link></span>
     </form>
+    
+    </div> 
     <ToastContainer/>
-    </div>  
+    </div> 
    </>
   )
 }
