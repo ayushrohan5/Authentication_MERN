@@ -3,6 +3,7 @@ import { Link, useNavigate } from 'react-router-dom'
 import {ToastContainer} from 'react-toastify';
 import { handleError, handleSuccess } from '../utils';
 import axios from 'axios';
+import '../index.css'
 
 const SignUp = () => {
     const [signupInfo, setsignupInfo] = useState({
@@ -55,7 +56,7 @@ const SignUp = () => {
     
         } catch (err) {
             handleError(err.response?.data?.error?.details[0].message || err);
-            console.log(err.response?.data?.message);
+            
         }
     }
     

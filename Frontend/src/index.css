@@ -1,3 +1,4 @@
+
 *,
 ::before,
 ::after{
@@ -124,4 +125,182 @@ button{
   0% { box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.4); }
   70% { box-shadow: 0 0 0 10px rgba(255, 255, 255, 0); }
   100% { box-shadow: 0 0 0 0 rgba(255, 255, 255, 0); }
+}
+
+/* Fullscreen animated background */
+.login-wrapper {
+  height: 100vh;
+  width: 100vw;
+  background: linear-gradient(-45deg, #1d2b64, #f8cdda, #667eea, #764ba2);
+  background-size: 400% 400%;
+  animation: bgShift 12s ease infinite;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Animated background keyframes */
+@keyframes bgShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Frosted glass login box */
+.login-container {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(12px);
+  padding: 3rem;
+  border-radius: 1.25rem;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.37);
+  width: 90%;
+  max-width: 400px;
+  color: #fff;
+  text-align: center;
+}
+
+.login-container h2 {
+  margin-bottom: 1.5rem;
+  font-size: 2rem;
+}
+
+/* Input fields */
+.login-container input {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  margin: 0.5rem 0;
+  border: none;
+  border-radius: 0.75rem;
+  outline: none;
+  font-size: 1rem;
+  transition: box-shadow 0.3s;
+}
+
+.login-container input:focus {
+  box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.3);
+}
+
+/* Animated login button */
+.login-button {
+  margin-top: 1rem;
+  width: 100%;
+  padding: 0.75rem;
+  background: #ffffff;
+  color: #1d2b64;
+  border: none;
+  border-radius: 0.75rem;
+  font-weight: bold;
+  font-size: 1rem;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.2s ease, background 0.3s;
+  animation: buttonPulse 2s infinite;
+}
+
+.login-button:hover {
+  transform: scale(1.05);
+  background: #f0f0f0;
+}
+
+/* Button pulse animation */
+@keyframes buttonPulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.3);
+  }
+  70% {
+    box-shadow: 0 0 0 12px rgba(255, 255, 255, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(255, 255, 255, 0);
+  }
+}
+.new-user{
+  margin-top: 2rem;
+}
+
+.home-container {
+  text-align: center;
+  padding: 60px;
+  background: linear-gradient(to right, #6a11cb, #2575fc);
+  min-height: 100vh;
+  color: #fff;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.full-bg {
+  width: 100vw;
+  height: 100vh; /* ✅ full screen height */
+  background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  font-family: 'Segoe UI', sans-serif;
+  text-align: center;
+  padding: 2rem;
+  box-sizing: border-box;
+}
+
+/* Button group style */
+.button-group {
+  display: flex;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+/* General button styling */
+.btn {
+  padding: 12px 24px;
+  font-size: 16px;
+  border: none;
+  border-radius: 30px;
+  text-decoration: none;
+  cursor: pointer;
+  transition: 0.3s ease;
+  color: white;
+}
+
+/* Cool animated button */
+.cool-btn {
+  background: linear-gradient(to right, #ff4b2b, #ff416c);
+  box-shadow: 0 0 15px rgba(255, 65, 108, 0.5);
+}
+.cool-btn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 25px rgba(255, 65, 108, 0.7);
+}
+
+/* Logout button */
+.logout-btn {
+  background: linear-gradient(to right, #243b55, #141e30);
+  box-shadow: 0 0 15px rgba(20, 30, 48, 0.5);
+}
+.logout-btn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 25px rgba(20, 30, 48, 0.7);
+}
+
+.product-list {
+  margin-top: 2rem;
+  background: rgba(255, 255, 255, 0.1);
+  padding: 1.5rem;
+  border-radius: 12px;
+  width: 80%;
+  max-width: 600px;
+  color: white;
+  text-align: left;
+}
+
+.product-list ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+.product-list li {
+  margin: 0.5rem 0;
+  padding: 0.5rem;
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 6px;
 }

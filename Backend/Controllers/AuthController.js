@@ -55,4 +55,37 @@ const login = async (req,res)=>{
     }
 }
 
-module.exports={signup, login}
+// controllers/authController.js
+
+const logout = async (req, res) => {
+  try {
+    // Grab token from header
+    const authHeader = req.headers.authorization;
+
+    if (!authHeader || !authHeader.startsWith('Bearer ')) {
+      return res.status(401).json({ success: false, message: 'No token provided' });
+    }
+
+    const token = authHeader.split(' ')[1];
+
+    // Optional: verify token to ensure it was valid
+    jwt.verify(token, process.env.JWT_SECRET, (err, decoded) => {
+      if (err) {
+        return res.status(401).json({ success: false, message: 'Invalid token' });
+      }
+
+      // You can invalidate token here if using Redis/etc (not required here)
+
+      return res.status(200).json({
+        success: true,
+        message: 'Logout successful.',
+      });
+    });
+  } catch (err) {
+    return res.status(500).json({ success: false, message: 'Logout failed', error: err.message });
+  }
+};
+
+
+
+module.exports={signup, login, logout}
