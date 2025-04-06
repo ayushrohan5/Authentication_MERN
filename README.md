@@ -15,6 +15,6 @@ npm i
 nodemon index
 
 create a .env file in backend and define your own:
-PORT
-MONGO_CONN
+PORT,
+MONGO_CONN, and
 JWT_SECRET
